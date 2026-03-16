@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/assignment1/styles/globals.css"],"sourcesContent":[".table-hover tbody tr:hover { cursor: pointer; }\n"],"names":[],"mappings":"AAAA"}}]
+}
