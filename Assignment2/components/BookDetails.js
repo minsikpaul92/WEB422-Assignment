@@ -1,15 +1,11 @@
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import { useAtom } from 'jotai';
-import { favouritesAtom } from '@/store';
-import { useState, useEffect } from 'react';
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { useAtom } from "jotai";
+import { favouritesAtom } from "@/store";
+import { useState, useEffect } from "react";
 
-export default function BookDetails({
-  book,
-  workId,
-  showFavouriteBtn = true
-}) {
+export default function BookDetails({ book, workId, showFavouriteBtn = true }) {
   const [favouritesList, setFavouritesList] = useAtom(favouritesAtom);
-  const [showAdded, setShowAdded] = useState(false);
+  const [showAdded, setShowAdded] = useState(favouritesList.includes(workId));
 
   useEffect(() => {
     if (workId) {
@@ -19,9 +15,9 @@ export default function BookDetails({
 
   const favouritesClicked = () => {
     if (showAdded) {
-      setFavouritesList(current => current.filter(fav => fav !== workId));
+      setFavouritesList((current) => current.filter((fav) => fav !== workId));
     } else {
-      setFavouritesList(current => [...current, workId]);
+      setFavouritesList((current) => [...current, workId]);
     }
   };
 
@@ -34,7 +30,8 @@ export default function BookDetails({
           <img
             onError={(event) => {
               event.target.onerror = null;
-              event.target.src = "https://placehold.co/400x600?text=Cover+Not+Available";
+              event.target.src =
+                "https://placehold.co/400x600?text=Cover+Not+Available";
             }}
             className="img-fluid w-100"
             src={`https://covers.openlibrary.org/b/id/${book?.covers?.[0]}-L.jpg`}

@@ -1,4 +1,4 @@
-import '@/styles/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/globals.css";
 import Layout from "@/components/Layout";
 import { SWRConfig } from "swr";
