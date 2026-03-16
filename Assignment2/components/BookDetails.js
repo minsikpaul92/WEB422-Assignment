@@ -1,17 +1,11 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useAtom } from "jotai";
 import { favouritesAtom } from "@/store";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function BookDetails({ book, workId, showFavouriteBtn = true }) {
   const [favouritesList, setFavouritesList] = useAtom(favouritesAtom);
   const [showAdded, setShowAdded] = useState(favouritesList.includes(workId));
-
-  useEffect(() => {
-    if (workId) {
-      setShowAdded(favouritesList.includes(workId));
-    }
-  }, [favouritesList, workId]);
 
   const favouritesClicked = () => {
     if (showAdded) {
